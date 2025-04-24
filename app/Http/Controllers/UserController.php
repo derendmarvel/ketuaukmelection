@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function getUKM(){
+        $user = Auth::user();
+        $ukms = $user->ukms;
+
+        return view('ukmList', [
+            'ukms' => $ukms,
+        ]);
+    }
+
     public function store(Request $request) {
         $validatedData = $request->validate([
             'email' => 'required|email',
@@ -47,7 +56,7 @@ class UserController extends Controller
                                 $user->email = $validatedData['email'];
                                 $user->save();
                                 Auth::login($user);
-                                return redirect()->route('main');
+                                return redirect()->route('ukmList');
                             }
                         }
                     }

@@ -20,6 +20,9 @@ Route::get('/signup', function () {
 
 Route::post('/registration', [UserController::class, 'store'])->name('registration');
 
+Route::get('/ukmList', [UserController::class, 'getUKM'])->middleware('voter')->name('ukmList');
+Route::get('/candidateList{id}', [CandidateController::class, 'showCandidates'])->middleware('voter')->name('candidateList');
+
 Route::get('/', [CandidateController::class, 'index'])->middleware('voter')->name('main');
 Route::get('/details/{id}', [CandidateController::class, 'show'])->middleware('voter');
 Route::put('/details/update/{id}', [CandidateController::class, 'update'])->middleware('voter')->name('candidate.vote');

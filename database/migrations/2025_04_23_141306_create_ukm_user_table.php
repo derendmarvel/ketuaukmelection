@@ -11,17 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('candidates', function (Blueprint $table) {
+        Schema::create('ukm_user', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('names');
-            $table->integer('number_of_votes');
-            $table->string('photo');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->nullable(true)
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->unsignedBigInteger('ukm_id')->nullable();
             $table->foreign('ukm_id')->nullable(true)
                 ->references('id')
                 ->on('ukm')
                 ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('candidates');
+        Schema::dropIfExists('ukm_user');
     }
 };

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
+use App\Models\UKM;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +17,18 @@ class CandidateController extends Controller
         return view('main', [
            'candidate_1' => Candidate::find(1),
            'candidate_2' => Candidate::find(2)
+        ]);
+    }
+
+    public function showCandidates($id)
+    {
+        $candidates = Candidate::where('ukm_id', $id)->get();
+        $ukm = UKM::where('id', $id)->first();
+        $ukm = $ukm->name;
+
+        return view('main', [
+           'candidates' => $candidates,
+           'ukm' => $ukm
         ]);
     }
 

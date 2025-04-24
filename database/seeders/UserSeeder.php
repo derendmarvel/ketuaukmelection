@@ -22,7 +22,6 @@ class UserSeeder extends Seeder
             // 'google_id' => null,
             'presence' => 0,
             'role'=> 1,
-            'candidate_id' => null,
             'remember_token' => Str::random(10),
         ]);
 
@@ -34,7 +33,6 @@ class UserSeeder extends Seeder
             // 'google_id' => null,
             'presence' => 1,
             'role'=> 2,
-            'candidate_id' => null,
             'remember_token' => Str::random(10),
         ]);
     }

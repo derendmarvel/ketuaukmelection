@@ -16,8 +16,10 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call([
+            UKMSeeder::class,
             CandidateSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            UKMUserSeeder::class,
         ]);
 
         Model::reguard();

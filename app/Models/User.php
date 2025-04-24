@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -23,8 +24,7 @@ class User extends Authenticatable
         'email',
         'nim',
         'role',
-        'candidate_id',
-        'presence'
+        'presence',
         // 'google_id'
     ];
 
@@ -61,7 +61,9 @@ class User extends Authenticatable
         return false;
     }
 
-    public function candidate(): BelongsTo{
-        return $this->belongsTo(Candidate::class, 'candidate_id', 'id');
+    public function ukms(){
+        return $this->belongsToMany(UKM::class, 'ukm_user', 'user_id', 'ukm_id');
     }
+    
+
 }

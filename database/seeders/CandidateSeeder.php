@@ -16,13 +16,15 @@ class CandidateSeeder extends Seeder
         Candidate::create([
             'names' => 'Odilia Keisha & Bryan Jonathan',
             'number_of_votes' => 0,
-            'photo' => '/images/Candidate 1.png'
+            'photo' => '/images/Candidate 1.png',
+            'ukm_id' => 1,
         ]);   
 
         Candidate::create([
             'names' => 'Calista Wijaya & Yosua Pirono',
             'number_of_votes' => 0,
-            'photo' => '/images/Candidate 2.png'
+            'photo' => '/images/Candidate 2.png',
+            'ukm_id' => 1,
         ]);   
     }
 }

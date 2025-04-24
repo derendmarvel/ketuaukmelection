@@ -19,11 +19,6 @@ return new class extends Migration
             // $table->string('google_id')->nullable();
             $table->integer('presence')->nullable();
             $table->integer('role');
-            $table->unsignedBigInteger('candidate_id')->nullable(true);
-            $table->foreign('candidate_id')->nullable(true)
-                ->references('id')
-                ->on('candidates')
-                ->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
