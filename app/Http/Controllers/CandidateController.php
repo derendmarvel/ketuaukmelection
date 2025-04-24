@@ -100,9 +100,6 @@ class CandidateController extends Controller
         $candidate = Candidate::find($id);
 
         $candidate->number_of_votes += 1;
-        Auth::user()->candidate_id = $candidate->id;
-
-        Auth::user()->save();
         $candidate->save();
 
         return view('/finish');
