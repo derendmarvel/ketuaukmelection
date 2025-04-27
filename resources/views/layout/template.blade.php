@@ -73,8 +73,8 @@
 
         .exceed-image-2 {
             position: relative;
-            margin-top: -150px;
-            width: 400px;
+            margin-top: -50px;
+            width: 100%;
         }
 
         .exceed-image-3 {
@@ -242,13 +242,13 @@
 </head>
 <body>
     <div class = "w-100 bg-image px-5">
-        <nav class="navbar p-2 ps-4" data-aos="fade-up" data-aos-duration="1000">
+        <nav class="navbar p-2 ps-4" data-aos="fade-up" data-aos-duration="2000">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="/images/LOGO UC.png" alt="Logo" width="60" height="60">
                     <!-- <img src="/images/LOGO SC.png" alt="Logo" width="26" height="34"> -->
-                    <img src="/images/LOGO SRB.png" alt="Logo" width="80" height="42">
-                    <img src="/images/LOGO BUKU.png" alt="Logo" width="60" height="60">
+                    <!-- <img src="/images/LOGO SRB.png" alt="Logo" width="80" height="42">
+                    <img src="/images/LOGO BUKU.png" alt="Logo" width="60" height="60"> -->
                 </a>
                 
             </div>

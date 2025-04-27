@@ -6,6 +6,7 @@ use App\Models\Candidate;
 use App\Models\UKM;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CandidateController extends Controller
 {
@@ -62,7 +63,6 @@ class CandidateController extends Controller
 
     public function stats(){
         $candidate_1 = Candidate::find(1);
-        $candidate_2 = Candidate::find(2);
 
         if ($candidate_1->number_of_votes == 0){
             $percentage_1 = 0;
@@ -101,6 +101,14 @@ class CandidateController extends Controller
 
         $candidate->number_of_votes += 1;
         $candidate->save();
+
+        $user = Auth::user();
+        DB::table('ukm_user')
+            ->where('user_id', $user->id)
+            ->where('ukm_id', $candidate->ukm_id)
+            ->update([
+                'has_voted' => true,
+            ]);
 
         return view('/finish');
     }

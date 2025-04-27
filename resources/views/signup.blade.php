@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Sign in with Google -->
-    <!-- <div class = "col w-100 h-100 justify-content-center align-middle">
+    <div class = "col w-100 h-100 justify-content-center align-middle">
         <div class = "row" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
             <h1 class = "heading-3 fw-bold text-white"> SIGN-IN TO VOTE </h1>
         </div>
@@ -24,8 +24,8 @@
             </div>
             @enderror
         </div>
-    </div> -->
-    <div class="card w-100 h-100 px-5 py-3 rounded-4" data-aos="fade-up" data-aos-duration="2000">   
+    </div>
+    <!-- <div class="card w-100 h-100 px-5 py-3 rounded-4" data-aos="fade-up" data-aos-duration="2000">   
         <div class="card-body">
             <h1 class = "heading-2 fw-bold"> SIGN IN </h1>
                 <form method="POST" action="/registration">
@@ -60,5 +60,5 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
 @endsection

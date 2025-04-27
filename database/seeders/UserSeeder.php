@@ -19,20 +19,9 @@ class UserSeeder extends Seeder
             'email' => 'sa@ciputra.ac.id',
             'email_verified_at' => now(),
             'nim'=> '001',
-            // 'google_id' => null,
+            'google_id' => null,
             'presence' => 0,
             'role'=> 1,
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Derend Marvel Hanson Prionggo',
-            'email' => 'dmarvelhanson@student.ciputra.ac.id',
-            'email_verified_at' => now(),
-            'nim'=> '0706012210030',
-            // 'google_id' => null,
-            'presence' => 1,
-            'role'=> 2,
             'remember_token' => Str::random(10),
         ]);
     }
