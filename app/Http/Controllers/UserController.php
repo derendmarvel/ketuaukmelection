@@ -24,59 +24,6 @@ class UserController extends Controller
         ]);
     }
 
-    // public function store(Request $request) {
-    //     $validatedData = $request->validate([
-    //         'email' => 'required|email',
-    //         'nim' => 'required',
-    //     ]);
-
-    //     if($validatedData['email'] != 'sa@ciputra.ac.id'){
-    //         if (!str_ends_with($validatedData['email'], '@student.ciputra.ac.id')) {
-    //             return redirect()->back()->withErrors(['email' => 'Invalid email format. Please use an email ending with @student.ciputra.ac.id']);
-    //         }
-    //         $existingEmail = User::where('email', $validatedData['email'])->first();
-    //         $existingNIM = User::where('nim', $validatedData['nim'])->first();
-
-    //         if(!$existingNIM){
-    //             return redirect()->back()->withErrors(['email' => 'Please confirm attendance at the front desk first.']);
-    //         // } else if (!$existingEmail && $existingNIM){
-    //         //     return redirect()->back()->withErrors(['email' => 'Incorrect email.']);
-    //         // } else if (!$existingNIM && $existingEmail){
-    //         //     return redirect()->back()->withErrors(['nim' => 'Incorrect nim.']);
-    //         } else {
-    //             $user = User::where('nim', $validatedData['nim'])->first();
-    //             if($user){
-    //                 $import = new NimEmailImport();
-    //                 $filePath = public_path('images/Data Mahasiswa PEMILU 2024.xlsx');
-    //                 $data = Excel::toArray($import, $filePath)[0];
-
-    //                 foreach ($data as $row) {
-    //                     if ($row['nis'] == $user->nim && $row['official_email'] == $validatedData['email']) {
-    //                         if($user->candidate_id != null){
-    //                             return redirect()->back()->withErrors(['email' => 'Email has already been used to vote.']);
-    //                         } else {
-    //                             $user->email = $validatedData['email'];
-    //                             $user->save();
-    //                             Auth::login($user);
-    //                             return redirect()->route('ukmList');
-    //                         }
-    //                     }
-    //                 }
-    //                 return redirect()->back()->withErrors(['email' => 'Incorrect NIM or email.', 'nim']);                   
-    //             } else {
-    //                 return redirect()->back()->withErrors(['email' => 'Please confirm attendance at the front desk first.']);
-    //             }
-    //         }
-    //     } else {
-    //         if ($validatedData['nim'] == '001') {
-    //             $user = User::where('email', 'sa@ciputra.ac.id')->first();
-    //             Auth::login($user);
-    //             return redirect()->route('stats');
-    //         }
-    //         return redirect()->back()->withErrors(['nim' => 'Incorrect NIM.']);
-    //     }
-    // }
-
     /**
      * Function: googleLogin
      * This function will redirect to Google
@@ -95,8 +42,8 @@ class UserController extends Controller
         try {
             $googleUser = Socialite::driver('google')->user();
 
-            if($googleUser->email == 'sa@ciputra.ac.id'){
-                $user = User::where('email', 'sa@ciputra.ac.id')->first();
+            if($googleUser->email == 'dmarvelhanson@student.ciputra.ac.id'){
+                $user = User::where('email', 'dmarvelhanson@student.ciputra.ac.id')->first();
                 Auth::login($user);
                 return redirect()->route('stats');
             } else {

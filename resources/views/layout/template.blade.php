@@ -250,9 +250,7 @@
                     <!-- <img src="/images/LOGO SRB.png" alt="Logo" width="80" height="42">
                     <img src="/images/LOGO BUKU.png" alt="Logo" width="60" height="60"> -->
                 </a>
-                
             </div>
-            
         </nav>
         <div>
             @yield('content')
