@@ -42,8 +42,8 @@ class UserController extends Controller
         try {
             $googleUser = Socialite::driver('google')->user();
 
-            if($googleUser->email == 'dmarvelhanson@student.ciputra.ac.id'){
-                $user = User::where('email', 'dmarvelhanson@student.ciputra.ac.id')->first();
+            if($googleUser->email == 'derend101@gmail.com'){
+                $user = User::where('email', 'derend101@gmail.com')->first();
                 Auth::login($user);
                 return redirect()->route('stats');
             } else {
@@ -73,8 +73,16 @@ class UserController extends Controller
                         }
 
                         $import2 = new NimEmailImport();
-                        $folderPath = public_path('images/UKM Even');
-                        $files = File::allFiles($folderPath);
+                        $folderPaths = [
+                            public_path('images/UKM Even'),
+                            public_path('images/UKM Odd')
+                        ];
+
+                        $files = [];
+
+                        foreach ($folderPaths as $folderPath) {
+                            $files = array_merge($files, File::allFiles($folderPath));
+                        }
 
                         $fileMappings = [
                             'Abstract' => 1,

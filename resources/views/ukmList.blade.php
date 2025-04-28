@@ -3,24 +3,29 @@
 @section('title', 'Select UKM')
 
 @section('content')
-    <div class="row padding-main pb-4">
+    <div class="row padding-main pb-4 justify-content-center">
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="position-fixed top-0 start-0 p-2 m-3 btn btn-outline-light d-flex align-items-center gap-2 fs-5" 
+            style="z-index: 1050; width: auto;"> <i class="fas fa-arrow-left"></i> Log Out </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+        </form>
         @if($ukms->isNotEmpty())
             <h1 class="heading fw-bold text-white no-gap" data-aos="fade-up" data-aos-duration="2000">
                 YOUR ENROLLED UKMs
             </h1>
-            <h4 class="fw-medium text-white mb-4" data-aos="fade-up" data-aos-duration="2000" data-aos-delay = "200">
+            <h4 class="text-white mb-4 mt-2 fs-5" data-aos="fade-up" data-aos-duration="2000" data-aos-delay = "200">
                 Student Organizations You’ve Joined
             </h4>
         @else
             <h1 class="heading fw-bold text-white no-gap" data-aos="fade-up" data-aos-duration="2000">
                 YOUR ENROLLED UKMs
             </h1>
-            <h4 class="fw-medium text-white mb-4" data-aos="fade-up" data-aos-duration="2000" data-aos-delay = "200">
+            <h4 class="text-white mb-4 mt-2 fs-5" data-aos="fade-up" data-aos-duration="2000" data-aos-delay = "200">
                 No UKMs left to vote
             </h4>
         @endif
 
-        <div class="row justify-content-center">
+        <div class="row w-100 d-flex align-items-center justify-content-center text-center">
             @forelse ($ukms as $ukm)
                 <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="2000" data-aos-delay = "400">
                     <div class="card h-100 rounded-5 shadow border-0 bg-transparent" style="min-height: 250px;">

@@ -233,15 +233,57 @@
             height: 20px;
         }
 
+        .signin-btn{
+            width: 50%;
+        }
+
         .pagination-wrapper .text-sm {
             color: white !important;
         }
 
+        .candidate-card {
+            flex: 0 0 30%;
+            max-width: 30%;
+        }
+
+        .candidate-2 {
+            flex: 0 0 40%;
+            max-width: 40%;
+        }
+
+        @media (max-width: 768px) {
+            .signin-btn{
+                width: 90%;
+            }
+
+            .heading{
+                font-size: 40px;
+            }
+
+            .heading-3{
+                font-size: 50px;
+            }
+
+            .padding-main{
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .candidate-card {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+            }
+
+            .exceed-image-2 {
+                margin-top: -50px;
+                width: 100%;
+            }
+        }
         
     </style>
 </head>
 <body>
-    <div class = "w-100 bg-image px-5">
+    <div class = "w-100 bg-image px-4">
         <nav class="navbar p-2 ps-4" data-aos="fade-up" data-aos-duration="2000">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
