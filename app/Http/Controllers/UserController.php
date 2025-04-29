@@ -118,10 +118,15 @@ class UserController extends Controller
                         
                                     foreach ($data as $row) {
                                         if (($row['nim'] ?? null) == $userData->nim) {
-                                            DB::table('ukm_user')->insert([
-                                                'ukm_id' => $ukmId,
-                                                'user_id' => $userData->id,
-                                            ]);
+                                            if (!DB::table('ukm_user')
+                                                    ->where('ukm_id', $ukmId)
+                                                    ->where('user_id', $userData->id)
+                                                    ->exists()) {
+                                                DB::table('ukm_user')->insert([
+                                                    'ukm_id' => $ukmId,
+                                                    'user_id' => $userData->id,
+                                                ]);
+                                            }
                                             break;
                                         }
                                     }

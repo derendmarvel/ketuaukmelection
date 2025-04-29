@@ -18,10 +18,10 @@
                 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="{{ 400 + ($index * 200)}}">
                     
                     <div class="gradient rounded-5 m-2 position-relative">
-                        <img src="{{ $candidate->photo }}" class="exceed-image-2 w-100" alt="Candidate {{ $index + 1 }}">
-                        <span class="position-absolute top-0 start-0 translate-middle bg-white orange-text rounded-pill fs-1 fw-bold shadow" style="width: 60px;">
+                        <img src="{{ $candidate->photo }}" class="exceed-image-2" alt="Candidate {{ $index + 1 }}">
+                        <!-- <span class="position-absolute top-0 start-0 translate-middle bg-white orange-text rounded-pill fs-1 fw-bold shadow" style="width: 60px;">
                             {{ $index + 1 }}
-                        </span>
+                        </span> -->
                     </div>
 
                     <div class="ontop-image px-3 text-center">

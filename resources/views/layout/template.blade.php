@@ -14,7 +14,7 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -246,11 +246,6 @@
             max-width: 30%;
         }
 
-        .candidate-2 {
-            flex: 0 0 40%;
-            max-width: 40%;
-        }
-
         @media (max-width: 768px) {
             .signin-btn{
                 width: 90%;
@@ -277,6 +272,12 @@
             .exceed-image-2 {
                 margin-top: -50px;
                 width: 100%;
+            }
+
+            .bg-image {
+                background: url('/images/Long Background.jpg');
+                background-size: auto;
+                background-repeat: repeat-y;
             }
         }
         
@@ -312,17 +313,19 @@
     
     <script>
         function confirmation(form){
-            swal({
+            Swal.fire({
                 title: "Are you sure?",
                 text: "Click OK to confirm your choice.",
                 icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((isOkay) => {
-                if(isOkay) {
+                showCancelButton: true,
+                confirmButtonText: "OK",
+                cancelButtonText: "Cancel",
+                confirmButtonColor: "#28a745", // green
+                cancelButtonColor: "#6c757d",  // grey
+            }).then((result) => {
+                if (result.isConfirmed) {
                     form.submit();
-                } 
+                }
             });
             return false;
         }
