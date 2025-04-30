@@ -55,7 +55,7 @@
                             <div class="ontop-image d-flex flex-column align-items-center text-white">
                                 <p class="fw-bold fs-4 mb-2">{{ $candidate->names }}</p>
                                 <div class="orange-div rounded-5 fw-bold px-3 py-2">
-                                    {{ $candidate->votes_count ?? 0 }} votes
+                                    {{ $candidate->number_of_votes ?? 0 }} votes
                                 </div>
                             </div>
                         </div>

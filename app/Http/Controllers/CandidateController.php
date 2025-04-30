@@ -7,6 +7,7 @@ use App\Models\UKM;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Jobs\ProcessVote;
 
 class CandidateController extends Controller
 {
@@ -64,7 +65,10 @@ class CandidateController extends Controller
     public function stats(){
         $candidates = Candidate::with('ukm')
             ->get()
-            ->groupBy('ukm_id'); 
+            ->groupBy('ukm_id')
+            ->map(function ($group) {
+                return $group->sortByDesc('number_of_votes')->values(); // Correct: Collection sort
+            });
 
         return view('stats', [
             'candidates' => $candidates
@@ -84,19 +88,12 @@ class CandidateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $candidate = Candidate::find($id);
-
-        $candidate->number_of_votes += 1;
-        $candidate->save();
-
         $user = Auth::user();
-        DB::table('ukm_user')
-            ->where('user_id', $user->id)
-            ->where('ukm_id', $candidate->ukm_id)
-            ->update([
-                'has_voted' => true,
-            ]);
 
+        // Dispatch the vote job asynchronously
+        ProcessVote::dispatch($id, $user->id);
+
+        // Return view immediately — no wait for database
         return view('/finish');
     }
 
