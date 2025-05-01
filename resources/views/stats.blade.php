@@ -26,7 +26,7 @@
                 <div class = 'col-12 col-md-2 d-flex align-items-center justify-content-center text-center' data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
                     <div class = 'row w-100 justify-content-center text-center'>
                         <img class = "w-100" src = "{{ $ukm->logo }}"> 
-                        <h1 class = 'fs-1 fw-bold text-white text-center' >{{ $ukm->name }}</h1>
+                        <!-- <h1 class = 'fs-1 fw-bold text-white text-center' >{{ $ukm->name }}</h1> -->
                     </div>
                 </div>
 
@@ -47,14 +47,14 @@
                             <div class="row" >
                                 <div class="rounded-5">
                                     <div class="gradient rounded-4 m-4">
-                                        <img src="{{ $candidate->photo }}" class="exceed-image-2" alt="Candidate {{ $index + 1 }}">
+                                        <img src="{{ $candidate->photo }}" class="exceed-image-2 rounded-4" alt="Candidate {{ $index + 1 }}">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="ontop-image d-flex flex-column align-items-center text-white">
-                                <p class="fw-bold fs-4 mb-2">{{ $candidate->names }}</p>
-                                <div class="orange-div rounded-5 fw-bold px-3 py-2">
+                                <p class="fw-bold fs-4 mb-2 text-shadow">{{ $candidate->names }}</p>
+                                <div class="orange-div rounded-5 fw-bold px-3 py-2 shadow">
                                     {{ $candidate->number_of_votes ?? 0 }} votes
                                 </div>
                             </div>

@@ -31,7 +31,8 @@
 
         .bg-image {
             background: url('/images/Background.jpg');
-            background-size: cover;
+            background-size: auto;
+            background-repeat: repeat-y;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -244,6 +245,10 @@
         .candidate-card {
             flex: 0 0 30%;
             max-width: 30%;
+        }
+
+        .text-shadow {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         @media (max-width: 768px) {

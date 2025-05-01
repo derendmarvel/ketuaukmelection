@@ -341,5 +341,90 @@ class CandidateSeeder extends Seeder
             'photo' => '/images/Foto Ketua UKM/Boy.png',
             'ukm_id' => 9,
         ]);
+
+        Candidate::create([
+            'names' => 'Silacarini Citta Tionusa',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Silacarini Tionusa.png',
+            'ukm_id' => 21,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Rolland Alexander Prayugo',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Boy.png',
+            'ukm_id' => 21,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Reyhan Erid Hogantara',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Boy.png',
+            'ukm_id' => 8,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Vhiolina Christina Tidore',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Girl.png',
+            'ukm_id' => 8,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Sysylia Margareta Santoso',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Girl.png',
+            'ukm_id' => 8,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Phebe Liana Widjaja',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Phebe Widjaja.png',
+            'ukm_id' => 17,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Nathanael Ivan Ferdinand',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Nathanael Ferdinand.png',
+            'ukm_id' => 17,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Ariel Putri Mulio',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Ariel Mulio.png',
+            'ukm_id' => 4,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Christiano Owen Valentino',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Christiano Valentino.png',
+            'ukm_id' => 4,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Bryant Kioshi Prayogo',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Boy.png',
+            'ukm_id' => 4,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Elbert Kenneth Sudibyo',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Elbert Kenneth.png',
+            'ukm_id' => 7,
+        ]);
+        
+        Candidate::create([
+            'names' => 'Elsa Octavia Lukman',
+            'number_of_votes' => 0,
+            'photo' => '/images/Foto Ketua UKM/Girl.png',
+            'ukm_id' => 7,
+        ]);
+        
     }
 }

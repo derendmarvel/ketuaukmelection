@@ -4,6 +4,8 @@
 
 @section('content')
     <div class="row padding-main pb-4">
+        <a href="{{ route('ukmList') }}" class="position-fixed top-0 start-0 p-2 m-3 btn btn-outline-light d-flex align-items-center gap-2 fs-5" 
+            style="z-index: 1050; width: auto;"> <i class="fas fa-arrow-left"></i> Back </a>
         <h1 class="heading fw-bold text-white no-gap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay='200'>VOTE FOR THE HEAD</h1>
         <h4 class="fw-medium text-white mb-4" data-aos="fade-up" data-aos-duration="2000" data-aos-delay='400'>of {{ $ukm }} 2025/2026</h4>
 
@@ -18,7 +20,7 @@
                 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="{{ 400 + ($index * 200)}}">
                     
                     <div class="gradient rounded-5 m-2 position-relative">
-                        <img src="{{ $candidate->photo }}" class="exceed-image-2" alt="Candidate {{ $index + 1 }}">
+                        <img src="{{ $candidate->photo }}" class="exceed-image-2 rounded-5" alt="Candidate {{ $index + 1 }}">
                         <!-- <span class="position-absolute top-0 start-0 translate-middle bg-white orange-text rounded-pill fs-1 fw-bold shadow" style="width: 60px;">
                             {{ $index + 1 }}
                         </span> -->
