@@ -1,0 +1,53 @@
+services:
+  ukmpe-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: ukmpe-app
+    environment:
+      APP_ENV:           ${APP_ENV:-production}
+      APP_DEBUG:         "false"
+      LOG_CHANNEL:       stderr
+      APP_KEY:           ${APP_KEY:-base64:DSeWSig3JvLFB/kZN+9DP014X/gpuogFmomhMpEUwZI=}
+
+      # Database → point to your external service
+      DB_CONNECTION:     mysql
+      DB_HOST:           ${DB_HOST:-db2.kevinchr.com} 
+      DB_PORT:           ${DB_PORT:-3306}
+      DB_DATABASE:       ${DB_DATABASE:-ukmpe}
+      DB_USERNAME:       ${DB_USERNAME:-ucpe}
+      DB_PASSWORD:       ${DB_PASSWORD:-ucpe-access}
+      GOOGLE_CLIENT_ID:  ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI}
+    volumes:
+      - drive_ukmpe_0:/var/www/
+    networks:
+      - ukmpe-net
+    expose:
+      - "9000"
+
+    
+  ukmpe-web:
+    build: ./nginx
+    depends_on:
+      - ukmpe-app
+    restart: always
+    container_name: ukmpe-web
+    volumes:
+      - drive_ukmpe_0:/var/www/
+    expose:
+      - "80"                              # HTTP for NPM
+
+    networks:
+      - ukmpe-net                           # to reach sce:9000
+      - link0                             # external network NPM uses
+
+volumes:
+  drive_ukmpe_0:
+
+networks:
+  ukmpe-net:
+  link0:
+    external: true
