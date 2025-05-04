@@ -18,6 +18,9 @@ services:
       DB_DATABASE:       ${DB_DATABASE:-ukmpe}
       DB_USERNAME:       ${DB_USERNAME:-ucpe}
       DB_PASSWORD:       ${DB_PASSWORD:-ucpe-access}
+      GOOGLE_CLIENT_ID:  ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI}
     volumes:
       - drive_ukmpe_0:/var/www/
     networks:
