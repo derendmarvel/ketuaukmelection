@@ -16,8 +16,8 @@ services:
       DB_HOST:           ${DB_HOST:-db2.kevinchr.com} 
       DB_PORT:           ${DB_PORT:-3306}
       DB_DATABASE:       ${DB_DATABASE:-ukmpe}
-      DB_USERNAME:       ${DB_USERNAME:-ukmpe*ID}
-      DB_PASSWORD:       ${DB_PASSWORD:-ukmpe*KEY}
+      DB_USERNAME:       ${DB_USERNAME:-ucpe}
+      DB_PASSWORD:       ${DB_PASSWORD:-ucpe-access}
     volumes:
       - drive_ukmpe_0:/var/www/
     networks:
