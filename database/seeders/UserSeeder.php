@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin',
-            'email' => 'derend101@gmail.com',
+            'email' => 'sa@ciputra.ac.id',
             'email_verified_at' => now(),
-            'nim'=> '0706012210030',
+            'nim'=> '001',
             'google_id' => null,
             'presence' => 0,
             'role'=> 1,
