@@ -16,8 +16,9 @@
             @endphp
 
             @foreach ($candidates as $index => $candidate)
-                <div class="rounded-5 candidate-card {{ $candidateCount == 2 ? 'candidate-2' : 'candidate-3' }} mb-5">
-                    
+                <!-- <div class="rounded-5 candidate-card {{ $candidateCount == 2 ? 'candidate-2' : 'candidate-3' }} mb-5"> -->
+                <div class="rounded-5 candidate-card {{ $candidateCount == 2 ? 'candidate-2' : 'candidate-3' }} mb-5"
+                data-aos="fade-up" data-aos-duration="2000" data-aos-delay="{{ 400 + ($index * 200)}}">
                     <div class="gradient rounded-5 m-2 position-relative">
                         <img src="{{ $candidate->photo }}" class="exceed-image-2 rounded-5" alt="Candidate {{ $index + 1 }}">
                         <!-- <span class="position-absolute top-0 start-0 translate-middle bg-white orange-text rounded-pill fs-1 fw-bold shadow" style="width: 60px;">

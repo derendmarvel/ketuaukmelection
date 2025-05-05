@@ -368,9 +368,14 @@
     </footer> -->
 
     <script>
-        AOS.init();
-        
+        AOS.init({
+            disable: function() {
+                return window.innerWidth < 768; 
+            },
+            duration: 2000,
+        });
     </script>  
+
     
     <script>
         function confirmation(form){
