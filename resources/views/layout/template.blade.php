@@ -313,7 +313,7 @@
                 color: white;
                 padding: 16px 24px;
                 border-radius: 12px;
-                font-size: 8px;
+                font-size: 9px;
                 z-index: 9999;
                 text-align: center;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
