@@ -310,6 +310,8 @@
     $dbName = env('DB_DATABASE');
 @endphp
 <body>
+        <div class = "w-100 bg-image px-4">
+
         @if (!($appEnv === 'production' && $dbName === 'sce.prod'))
     <div class="floating-warning">
         <p>
@@ -323,7 +325,6 @@
         </p>
     </div>
 @endif
-    <div class = "w-100 bg-image px-4">
         <nav class="navbar p-2 ps-4" data-aos="fade-up" data-aos-duration="2000">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
