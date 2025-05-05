@@ -333,7 +333,7 @@
 <body>
         <div class = "w-100 bg-image px-4">
 
-        @if (!($appEnv === 'production' && $dbName === 'sce.prod'))
+        @if (!($appEnv === 'production' && $dbName === 'ukmpe.prod'))
     <div class="floating-warning">
         <p>
             <strong>Notice:</strong> This website is currently operating in a <strong>testing environment</strong> and is not intended for <strong>production use</strong>. 
