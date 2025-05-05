@@ -25,9 +25,10 @@
             </h4>
         @endif
 
-        <div class="row w-100 d-flex align-items-center justify-content-center text-center">
+        <div class="row w-100 d-flex align-items-center justify-content-center text-center py-4 py-md-0">
             @forelse ($ukms as $ukm)
-                <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="2000" data-aos-delay = "400">
+                <div class="col-md-4 col-sm-6 mb-4">
+                <!-- <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="2000" data-aos-delay = "400"> -->
                     <div class="card h-100 rounded-5 shadow border-0 bg-transparent" style="min-height: 250px;">
                         <div class="card-body rounded-5 d-flex flex-column justify-content-between p-4 bg-white">
                             <div>
@@ -41,7 +42,7 @@
                     </div>
                 </div>
             @empty
-            <div class = "px-5">
+            <div class = "px-5 py-5 py-md-0">
                 <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
                     <a href="{{ route('logout') }}" class="btn btn-success w-50 py-3 rounded-4 shadow fw-bold" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"> Finish Voting </a>

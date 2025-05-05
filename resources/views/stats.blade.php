@@ -4,7 +4,7 @@
 
 @section('content')
 <div class = "w-100 d-flex justify-content-center text-center">
-    <div class = "row padding-main  py-5 w-100 d-flex justify-content-center align-items-center">
+    <div class = "row padding-main  py-5 mb-5 w-100 d-flex justify-content-center align-items-center">
         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="position-fixed top-0 start-0 p-2 m-3 btn btn-outline-light d-flex align-items-center gap-2 fs-5" 
             style="z-index: 1050; width: auto;"> <i class="fas fa-arrow-left"></i> Back </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST">

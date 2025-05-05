@@ -9,15 +9,14 @@
         <h1 class="heading fw-bold text-white no-gap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay='200'>VOTE FOR THE HEAD</h1>
         <h4 class="fw-medium text-white mb-4" data-aos="fade-up" data-aos-duration="2000" data-aos-delay='400'>of {{ $ukm }} 2025/2026</h4>
 
-        <div class="d-flex flex-wrap justify-content-center gap-4">
+        <div class="d-flex flex-wrap justify-content-center gap-4 py-4 py-md-0">
             @php
                 $candidateCount = count($candidates);
                 $desktopWidth = $candidateCount == 2 ? '40%' : '30%';
             @endphp
 
             @foreach ($candidates as $index => $candidate)
-                <div class="rounded-5 candidate-card {{ $candidateCount == 2 ? 'candidate-2' : 'candidate-3' }} mb-5"
-                data-aos="fade-up" data-aos-duration="2000" data-aos-delay="{{ 400 + ($index * 200)}}">
+                <div class="rounded-5 candidate-card {{ $candidateCount == 2 ? 'candidate-2' : 'candidate-3' }} mb-5">
                     
                     <div class="gradient rounded-5 m-2 position-relative">
                         <img src="{{ $candidate->photo }}" class="exceed-image-2 rounded-5" alt="Candidate {{ $index + 1 }}">
