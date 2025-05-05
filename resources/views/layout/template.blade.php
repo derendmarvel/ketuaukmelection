@@ -251,6 +251,25 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
+        .floating-warning {
+                position: fixed;
+                bottom: 24px;
+                left: 10vw;
+                width: 80vw;
+                background: rgba(239, 68, 68, 0.6); /* Orange dengan 60% opacity */
+                color: white;
+                padding: 16px 24px;
+                border-radius: 12px;
+                font-size: 14px;
+                z-index: 9999;
+                text-align: center;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+            
+            .floating-warning strong {
+                font-weight: 700;
+            }
+
         @media (max-width: 768px) {
             .signin-btn{
                 width: 90%;
@@ -284,23 +303,25 @@
                 background-size: auto;
                 background-repeat: repeat-y;
             }
+            
             .floating-warning {
-    position: fixed;
-    bottom: 24px;
-    left: 10vw;
-    width: 80vw;
-    background: rgba(239, 68, 68, 0.6); /* Orange dengan 60% opacity */
-    color: white;
-    padding: 16px 24px;
-    border-radius: 12px;
-    font-size: 14px;
-    z-index: 9999;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-.floating-warning strong {
-    font-weight: 700;
-}
+                position: fixed;
+                bottom: 24px;
+                left: 10vw;
+                width: 80vw;
+                background: rgba(239, 68, 68, 0.6); /* Orange dengan 60% opacity */
+                color: white;
+                padding: 16px 24px;
+                border-radius: 12px;
+                font-size: 14px;
+                z-index: 9999;
+                text-align: center;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+            
+            .floating-warning strong {
+                font-weight: 700;
+            }
         }
         
     </style>
