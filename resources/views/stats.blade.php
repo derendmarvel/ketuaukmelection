@@ -34,7 +34,8 @@
                     <div class = 'row'>
                 <!-- List of candidates in the UKM -->
                         @foreach($candidatesGroup as $index => $candidate)
-                        <div class = 'col-12 col-md-4 align-items-center justify-content-center mb-4'  data-aos="fade-up" data-aos-duration="2000" data-aos-delay="{{ 200 + ($index * 200)}}">
+                        <div class = 'col-12 col-md-4 align-items-center justify-content-center mb-4'>
+                        <!-- <div class = 'col-12 col-md-4 align-items-center justify-content-center mb-4'  data-aos="fade-up" data-aos-duration="2000" data-aos-delay="{{ 200 + ($index * 200)}}"> -->
                             <div class="row justify-content-center">
                                 <div class="col-auto">
                                     <div class="bg-white orange-text rounded-pill fw-bold px-4 py-2 fs-2">
