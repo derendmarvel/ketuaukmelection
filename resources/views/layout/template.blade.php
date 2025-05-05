@@ -253,7 +253,7 @@
 
         .floating-warning {
                 position: fixed;
-                bottom: 24px;
+                top: 24px;
                 left: 10vw;
                 width: 80vw;
                 background: rgba(239, 68, 68, 0.6); /* Orange dengan 60% opacity */
