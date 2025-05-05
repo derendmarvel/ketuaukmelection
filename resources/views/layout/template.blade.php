@@ -284,11 +284,46 @@
                 background-size: auto;
                 background-repeat: repeat-y;
             }
+            .floating-warning {
+    position: fixed;
+    bottom: 24px;
+    left: 10vw;
+    width: 80vw;
+    background: rgba(239, 68, 68, 0.6); /* Orange dengan 60% opacity */
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    z-index: 9999;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.floating-warning strong {
+    font-weight: 700;
+}
         }
         
     </style>
 </head>
+    @php
+    $appEnv = env('APP_ENV');
+    $dbName = env('DB_DATABASE');
+@endphp
 <body>
+    <div class = "w-100 bg-image px-5">
+        @if (!($appEnv === 'production' && $dbName === 'sce.prod'))
+    <div class="floating-warning">
+        <p>
+            <strong>Notice:</strong> This website is currently operating in a <strong>testing environment</strong> and is not intended for <strong>production use</strong>. 
+        </br>If you believe this configuration is incorrect, please contact your <strong>system administrator</strong> or <strong>hosting provider</strong> immediately.
+        </p>
+        <hr style="border: 1px solid white; opacity: 0.5;">
+        <p>
+            <strong>Pemberitahuan:</strong> Situs web ini saat ini beroperasi dalam <strong>lingkungan pengujian</strong> dan tidak diperuntukkan untuk <strong>penggunaan produksi</strong>. 
+            </br>Jika Anda yakin konfigurasi ini tidak benar, harap segera hubungi <strong>administrator sistem</strong> atau <strong>penyedia hosting</strong> Anda.
+        </p>
+    </div>
+@endif
     <div class = "w-100 bg-image px-4">
         <nav class="navbar p-2 ps-4" data-aos="fade-up" data-aos-duration="2000">
             <div class="container-fluid">
