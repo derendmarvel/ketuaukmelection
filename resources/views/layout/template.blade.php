@@ -310,7 +310,6 @@
     $dbName = env('DB_DATABASE');
 @endphp
 <body>
-    <div class = "w-100 bg-image px-5">
         @if (!($appEnv === 'production' && $dbName === 'sce.prod'))
     <div class="floating-warning">
         <p>
