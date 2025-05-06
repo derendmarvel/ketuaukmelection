@@ -42,7 +42,7 @@ class UserController extends Controller
         try {
             $googleUser = Socialite::driver('google')->user();
 
-            if($googleUser->role == 'sa@ciputra.ac.id'){
+            if($googleUser->email == 'sa@ciputra.ac.id'){
                 $user = User::where('email', 'sa@ciputra.ac.id')->first();
                 Auth::login($user);
                 return redirect()->route('stats');
