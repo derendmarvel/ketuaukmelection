@@ -35,9 +35,15 @@
                                 <h4 class="fw-bold">{{ $ukm->name }}</h4>
                                 <img src = '{{ $ukm->logo}} ' style = 'height: 150px;'>
                             </div>
-                            <a href="{{ route('candidateList', $ukm->id) }}" class="btn btn-danger orange-div text-white rounded-5 fw-bold mt-3 w-100">
-                                Start Voting
-                            </a>
+                            @if ($ukm->pivot->can_vote == 1)
+                                <a href="{{ route('candidateList', $ukm->id) }}" class="btn btn-danger orange-div text-white rounded-5 fw-bold mt-3 w-100">
+                                    Start Voting
+                                </a>
+                            @else
+                                <button class="btn btn-secondary rounded-5 fw-bold mt-3 w-100" disabled>
+                                    Not enough attendance to vote
+                                </button>
+                            @endif
                         </div>
                     </div>
                 </div>

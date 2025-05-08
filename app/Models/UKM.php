@@ -25,7 +25,8 @@ class UKM extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(User::class, 'ukm_user', 'ukm_id', 'user_id');
+        return $this->belongsToMany(User::class, 'ukm_user', 'ukm_id', 'user_id')
+        ->withPivot('can_vote', 'has_voted');
     }
 
 }

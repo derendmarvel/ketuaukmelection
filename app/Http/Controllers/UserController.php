@@ -17,7 +17,7 @@ class UserController extends Controller
 {
     public function getUKM(){
         $user = Auth::user();
-        $ukms = $user->ukms()->wherePivot('has_voted', false)->get();;
+        $ukms = $user->ukms()->wherePivot('has_voted', false)->get();
 
         return view('ukmList', [
             'ukms' => $ukms,
@@ -109,20 +109,21 @@ class UserController extends Controller
                             'Debate' => 22,
                         ];
 
-                        foreach ($files as $file) {
-                            $filePath = $file->getPathname();
-                        
-                            foreach ($fileMappings as $keyword => $ukmId) {
+                        foreach ($fileMappings as $keyword => $ukmId) {
+                            // Reset counters for each UKM
+                            $user_attendance = 0;
+                            $total_attendance = 0;
+                            
+                            // Process all files for this specific UKM
+                            foreach ($files as $file) {
+                                $filePath = $file->getPathname();
+                                
                                 if (str_contains($filePath, $keyword)) {
-                                    $data = Excel::toArray($import2, $filePath)[0];
-                                    $attendanceSheet = Excel::toArray($import2, $filePath)[2];
-                                    // $headers = $attendanceSheet[0]; 
-                                    if (!empty($attendanceSheet)) {
-                                        $headers = $attendanceSheet[0];
-                                        \Log::info('Attendance Sheet Headers:', array_keys($headers));
-                                        dd(array_keys($headers)); // Or just log it if you don't want to stop the execution
-                                    }
-                        
+                                    $excelData = Excel::toArray($import2, $filePath);
+                                    $data = $excelData[0];             // first sheet
+                                    $attendanceSheet = $excelData[2];  // third sheet
+                                    
+                                    // Check membership
                                     foreach ($data as $row) {
                                         if (($row['nim'] ?? null) == $userData->nim) {
                                             if (!DB::table('ukm_user')
@@ -134,19 +135,40 @@ class UserController extends Controller
                                                     'user_id' => $userData->id,
                                                 ]);
                                             }
-                                            break;
                                         }
                                     }
-
-                                    // foreach ($attendanceSheet as $row) {
-                                    //     if(($row['nim'] ?? null) == $userData->nim) {
-                                    //         $user = User::where('nim', $row['nim'])->first();
-                                    //         if($row[''])
-                                    //         $user->can_vote = 0;
-                                    //         $user->save();
-                                    //     }
-                                    // }
+                                    
+                                    // Calculate attendance for this UKM
+                                    foreach ($attendanceSheet as $row) {
+                                        if(($row['nim'] ?? null) == $userData->nim) {
+                                            $user_attendance += $row['number_of_attending_class'];
+                                            $total_attendance += $row['number_of_class'];
+                                        }
+                                    }
                                 }
+                            }
+                            
+                            // Debug information
+                            \Log::info("UKM: $keyword, ID: $ukmId, User Attendance: $user_attendance, Total Attendance: $total_attendance");
+                            
+                            // Calculate percentage with division by zero protection
+                            $percentage = ($total_attendance > 0) ? $user_attendance / $total_attendance : 0;
+
+                            // DB::table('ukm_user')
+                            //     ->where('ukm_id', $ukmId)
+                            //     ->where('user_id', $userData->id)
+                            //     ->update(['can_vote' => $percentage]);
+
+                            if($percentage >= 0.5){
+                                DB::table('ukm_user')
+                                ->where('ukm_id', $ukmId)
+                                ->where('user_id', $userData->id)
+                                ->update(['can_vote' => 1]);
+                            } else {
+                                DB::table('ukm_user')
+                                ->where('ukm_id', $ukmId)
+                                ->where('user_id', $userData->id)
+                                ->update(['can_vote' => 0]);
                             }
                         }
                     
