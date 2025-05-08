@@ -115,6 +115,13 @@ class UserController extends Controller
                             foreach ($fileMappings as $keyword => $ukmId) {
                                 if (str_contains($filePath, $keyword)) {
                                     $data = Excel::toArray($import2, $filePath)[0];
+                                    $attendanceSheet = Excel::toArray($import2, $filePath)[2];
+                                    // $headers = $attendanceSheet[0]; 
+                                    if (!empty($attendanceSheet)) {
+                                        $headers = $attendanceSheet[0];
+                                        \Log::info('Attendance Sheet Headers:', array_keys($headers));
+                                        dd(array_keys($headers)); // Or just log it if you don't want to stop the execution
+                                    }
                         
                                     foreach ($data as $row) {
                                         if (($row['nim'] ?? null) == $userData->nim) {
@@ -130,6 +137,15 @@ class UserController extends Controller
                                             break;
                                         }
                                     }
+
+                                    // foreach ($attendanceSheet as $row) {
+                                    //     if(($row['nim'] ?? null) == $userData->nim) {
+                                    //         $user = User::where('nim', $row['nim'])->first();
+                                    //         if($row[''])
+                                    //         $user->can_vote = 0;
+                                    //         $user->save();
+                                    //     }
+                                    // }
                                 }
                             }
                         }

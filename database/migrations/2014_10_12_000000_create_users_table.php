@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('google_id')->nullable();
             $table->integer('presence')->nullable();
             $table->integer('role');
+            $table->integer('can_vote')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
