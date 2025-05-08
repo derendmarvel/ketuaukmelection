@@ -23,7 +23,9 @@ return new class extends Migration
                 ->references('id')
                 ->on('ukm')
                 ->onDelete('cascade');
-            $table->boolean('has_voted')->default(false);
+            $table->integer('has_voted')->default(0);
+            // $table->float('can_vote')->nullable();
+            $table->integer('can_vote')->nullable();
             $table->timestamps();
         });
     }

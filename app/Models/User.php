@@ -25,7 +25,8 @@ class User extends Authenticatable
         'nim',
         'role',
         'presence',
-        // 'google_id'
+        'google_id',
+        'can_vote'
     ];
 
     /**
@@ -62,8 +63,8 @@ class User extends Authenticatable
     }
 
     public function ukms(){
-        return $this->belongsToMany(UKM::class, 'ukm_user', 'user_id', 'ukm_id');
+        return $this->belongsToMany(UKM::class, 'ukm_user', 'user_id', 'ukm_id')
+        ->withPivot('can_vote', 'has_voted');
     }
-    
 
 }
