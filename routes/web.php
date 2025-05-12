@@ -3,6 +3,7 @@
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Route::get('/signup', function () {
+//     return view ('signup');
+// })->name('signup');
+
 Route::get('/signup', function () {
-    return view ('signup');
+    $now = Carbon::now('Asia/Jakarta');
+    $cutoffTime = Carbon::today('Asia/Jakarta')->addHours(21); // 9 PM WIB
+    $votingClosed = $now->greaterThanOrEqualTo($cutoffTime);
+
+    return view('signup', compact('votingClosed'));
 })->name('signup');
 
 Route::post('/registration', [UserController::class, 'store'])->name('registration');
